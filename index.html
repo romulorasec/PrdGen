@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerador profissional de PRDs (Product Requirements Documents) através de entrevista guiada">
+    <title>PRD Generator - Gerador Profissional de Documentos de Produto</title>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="brand">
+                        <div class="brand-icon">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                        <h1 class="brand-title">PRD Generator</h1>
+                    </div>
+                    <button class="btn btn-ghost btn-sm" id="resetBtn" style="display: none;">
+                        <i data-lucide="refresh-cw"></i>
+                        <span>Nova Sessão</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="app-main">
+            <!-- Welcome Screen -->
+            <section id="welcomeScreen" class="screen active">
+                <div class="container">
+                    <div class="welcome-container">
+                        <div class="welcome-content">
+                            <!-- Hero Section -->
+                            <div class="hero">
+                                <div class="hero-badge">
+                                    <i data-lucide="sparkles"></i>
+                                    <span>Powered by AI</span>
+                                </div>
+                                <h1 class="hero-title">
+                                    Crie PRDs Profissionais<br>
+                                    <span class="gradient-text">em Minutos</span>
+                                </h1>
+                                <p class="hero-description">
+                                    Transforme suas ideias em documentos completos de requisitos de produto
+                                    através de uma entrevista guiada e estruturada.
+                                </p>
+                            </div>
+
+                            <!-- Features Grid -->
+                            <div class="features-grid">
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i data-lucide="target"></i>
+                                    </div>
+                                    <h3 class="feature-title">Focado em Resultados</h3>
+                                    <p class="feature-description">
+                                        PRDs adaptados para SaaS, Micro SaaS, Apps Mobile e Websites
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i data-lucide="zap"></i>
+                                    </div>
+                                    <h3 class="feature-title">Rápido e Eficiente</h3>
+                                    <p class="feature-description">
+                                        4 perguntas simples para um documento completo e estruturado
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i data-lucide="shield-check"></i>
+                                    </div>
+                                    <h3 class="feature-title">100% Privado</h3>
+                                    <p class="feature-description">
+                                        Seus dados permanecem no navegador, sem envio para servidores
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">
+                                        <i data-lucide="award"></i>
+                                    </div>
+                                    <h3 class="feature-title">Padrão de Mercado</h3>
+                                    <p class="feature-description">
+                                        Baseado em 10+ anos de experiência em Product Management
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- CTA Button -->
+                            <div class="welcome-cta">
+                                <button class="btn btn-primary btn-lg" id="startBtn">
+                                    <span>Começar Agora</span>
+                                    <i data-lucide="arrow-right"></i>
+                                </button>
+                                <p class="cta-note">
+                                    <i data-lucide="clock"></i>
+                                    Leva apenas 5 minutos
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interview Screen -->
+            <section id="interviewScreen" class="screen">
+                <div class="container">
+                    <div class="interview-container">
+                        <!-- Progress Stepper -->
+                        <div class="progress-stepper">
+                            <div class="stepper-track">
+                                <div class="stepper-progress" id="stepperProgress"></div>
+                            </div>
+                            <div class="stepper-steps">
+                                <div class="step active" data-step="1">
+                                    <div class="step-circle">
+                                        <i data-lucide="package"></i>
+                                    </div>
+                                    <span class="step-label">Produto</span>
+                                </div>
+                                <div class="step" data-step="2">
+                                    <div class="step-circle">
+                                        <i data-lucide="layers"></i>
+                                    </div>
+                                    <span class="step-label">Tipo</span>
+                                </div>
+                                <div class="step" data-step="3">
+                                    <div class="step-circle">
+                                        <i data-lucide="lightbulb"></i>
+                                    </div>
+                                    <span class="step-label">Visão</span>
+                                </div>
+                                <div class="step" data-step="4">
+                                    <div class="step-circle">
+                                        <i data-lucide="users"></i>
+                                    </div>
+                                    <span class="step-label">Público</span>
+                                </div>
+                                <div class="step" data-step="5">
+                                    <div class="step-circle">
+                                        <i data-lucide="check"></i>
+                                    </div>
+                                    <span class="step-label">Revisão</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chat Area -->
+                        <div class="chat-area">
+                            <div class="chat-messages" id="chatContainer">
+                                <!-- Messages will be added here dynamically -->
+                            </div>
+
+                            <!-- Input Area -->
+                            <div class="chat-input-wrapper">
+                                <div class="chat-input-container">
+                                    <div class="input-group">
+                                        <textarea
+                                            id="userInput"
+                                            class="chat-input"
+                                            placeholder="Digite sua resposta aqui..."
+                                            rows="1"
+                                        ></textarea>
+                                        <button class="btn btn-primary btn-icon" id="sendBtn">
+                                            <i data-lucide="send"></i>
+                                        </button>
+                                    </div>
+                                    <div class="input-hint" id="inputHint">
+                                        <i data-lucide="info"></i>
+                                        <span>Pressione Enter para enviar, Shift+Enter para nova linha</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PRD Display Screen -->
+            <section id="prdScreen" class="screen">
+                <div class="container">
+                    <div class="prd-container">
+                        <!-- PRD Header Actions -->
+                        <div class="prd-header">
+                            <div class="prd-header-content">
+                                <div class="prd-title-section">
+                                    <div class="prd-icon">
+                                        <i data-lucide="file-check"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="prd-title">Seu PRD está pronto!</h2>
+                                        <p class="prd-subtitle">Documento gerado com sucesso</p>
+                                    </div>
+                                </div>
+                                <div class="prd-actions">
+                                    <button class="btn btn-secondary" id="copyBtn">
+                                        <i data-lucide="copy"></i>
+                                        <span>Copiar</span>
+                                    </button>
+                                    <button class="btn btn-secondary" id="downloadBtn">
+                                        <i data-lucide="download"></i>
+                                        <span>Baixar</span>
+                                    </button>
+                                    <button class="btn btn-primary" id="newPrdBtn">
+                                        <i data-lucide="plus"></i>
+                                        <span>Novo PRD</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PRD Content -->
+                        <div class="prd-content-wrapper">
+                            <div class="prd-content" id="prdContent">
+                                <!-- PRD will be rendered here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p class="footer-text">
+                        <span>Desenvolvido com</span>
+                        <i data-lucide="heart"></i>
+                        <span>usando tecnologias modernas</span>
+                    </p>
+                    <p class="footer-copy">&copy; 2026 PRD Generator. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">
+            <i data-lucide="check-circle"></i>
+        </div>
+        <div class="toast-content">
+            <p class="toast-message" id="toastMessage"></p>
+        </div>
+        <button class="toast-close" id="toastClose">
+            <i data-lucide="x"></i>
+        </button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p class="loading-text">Gerando seu PRD...</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Confirmação</h3>
+                <button class="modal-close" id="modalClose">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message" id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modalCancel">Cancelar</button>
+                <button class="btn btn-primary" id="modalConfirm">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
