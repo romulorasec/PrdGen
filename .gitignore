@@ -1,0 +1,24 @@
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
